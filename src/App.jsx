@@ -32,7 +32,10 @@ function App() {
     setCards(shuffledCards);
     setTurns(0);
   };
-  console.log(turns);
+
+  const handleChoise = (card) => {
+    firstChoise ? setSecChoise(card) : setFirstChoise(card);
+  };
 
   return (
     <div className="wrapper">
@@ -40,7 +43,12 @@ function App() {
       <button onClick={shuffleCards}>New Game</button>
       <div className="container">
         {cards.map((card) => (
-          <Card key={card.id} card={card} cover={cover} />
+          <Card
+            key={card.id}
+            card={card}
+            cover={cover}
+            handleChoise={handleChoise}
+          />
         ))}
       </div>
     </div>

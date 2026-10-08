@@ -1,7 +1,9 @@
 import "./Card.module.css";
 
-const Card = ({ card, cover }) => {
-  const clickHandle = () => {};
+const Card = ({ card, cover, handleChoise }) => {
+  const handleClick = () => {
+    handleChoise(card);
+  };
 
   return (
     <div className="card">
