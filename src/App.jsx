@@ -7,6 +7,7 @@ import image4 from "./assets/image_4.jpg";
 import image5 from "./assets/image_5.jpg";
 import image6 from "./assets/image_6.jpg";
 import cover from "./assets/cover.jpg";
+import Card from "./components/Card/Card";
 
 const cardImages = [
   { src: image1 },
@@ -20,6 +21,8 @@ const cardImages = [
 function App() {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
+  const [firstChoise, setFirstChoise] = useState(null);
+  const [secChoise, setSecChoise] = useState(null);
 
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
@@ -29,7 +32,7 @@ function App() {
     setCards(shuffledCards);
     setTurns(0);
   };
-  console.log(cards, turns);
+  console.log(turns);
 
   return (
     <div className="wrapper">
@@ -37,10 +40,7 @@ function App() {
       <button onClick={shuffleCards}>New Game</button>
       <div className="container">
         {cards.map((card) => (
-          <div className="card" key={card.id}>
-            <img className="front" src={card.src} alt="card-front" />
-            <img className="back" src={cover} alt="card-back" />
-          </div>
+          <Card key={card.id} card={card} cover={cover} />
         ))}
       </div>
     </div>
