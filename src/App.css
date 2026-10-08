@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.front,
+.back {
+  height: 50px;
+}
+
+.wrapper {
+  /* margin: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px; */
+  display: flex;
+}
+
+button {
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #f54927;
+}
