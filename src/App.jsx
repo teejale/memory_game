@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import image1 from "./assets/image_1.jpg";
 import image2 from "./assets/image_2.jpg";
@@ -10,12 +10,12 @@ import cover from "./assets/cover.jpg";
 import Card from "./components/Card/Card";
 
 const cardImages = [
-  { src: image1 },
-  { src: image2 },
-  { src: image3 },
-  { src: image4 },
-  { src: image5 },
-  { src: image6 },
+  { src: image2, matched: false },
+  { src: image3, matched: false },
+  { src: image1, matched: false },
+  { src: image4, matched: false },
+  { src: image5, matched: false },
+  { src: image6, matched: false },
 ];
 
 function App() {
@@ -35,6 +35,31 @@ function App() {
 
   const handleChoise = (card) => {
     firstChoise ? setSecChoise(card) : setFirstChoise(card);
+  };
+
+  useEffect(() => {
+    if (firstChoise && secChoise) {
+      if (firstChoise.src === secChoise.src) {
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === firstChoise.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
+        resetTurn();
+      } else {
+        resetTurn();
+      }
+    }
+  }, [firstChoise, secChoise]);
+
+  const resetTurn = () => {
+    setFirstChoise(null);
+    setSecChoise(null);
+    setTurns((prevTurns) => prevTurns + 1);
   };
 
   return (
