@@ -56,6 +56,8 @@ function App() {
     }
   }, [firstChoise, secChoise]);
 
+  console.log(cards);
+
   const resetTurn = () => {
     setFirstChoise(null);
     setSecChoise(null);
@@ -73,6 +75,7 @@ function App() {
             card={card}
             cover={cover}
             handleChoise={handleChoise}
+            flipped={card === firstChoise || card === secChoise || card.matched}
           />
         ))}
       </div>
