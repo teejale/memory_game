@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 15px;
+  font-size: 1rem;
+  color: #1ee24f;
+}
+
+@media (min-width: 600px) {
+  .header {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .header {
+    font-size: 2rem;
+  }
+}
+
+.carAnimation {
+  width: 100px;
+  height: 150px;
+}
+
+@media (min-width: 600px) {
+  .carAnimation {
+    width: 350px;
+    height: 230px;
+  }
+}

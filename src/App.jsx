@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import Button from "./components/Button/Button";
+import Header from "./components/Header/Header";
+
 import image1 from "./assets/image_1.jpg";
 import image2 from "./assets/image_2.jpg";
 import image3 from "./assets/image_3.jpg";
 import image4 from "./assets/image_4.jpg";
 import image5 from "./assets/image_5.jpg";
 import image6 from "./assets/image_6.jpg";
-import cover from "./assets/cover.jpg";
+import cover from "./assets/yellow_cover.jpg";
 import Card from "./components/Card/Card";
 
 const cardImages = [
@@ -51,7 +54,9 @@ function App() {
         });
         resetTurn();
       } else {
-        resetTurn();
+        setTimeout(() => {
+          resetTurn();
+        }, 1000);
       }
     }
   }, [firstChoise, secChoise]);
@@ -66,16 +71,18 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h1>Memory</h1>
-      <button onClick={shuffleCards}>New Game</button>
+      <Header />
+      <div className="carAnimation"></div>
+      <Button onClick={shuffleCards} text="New Game!" />
       <div className="container">
         {cards.map((card) => (
           <Card
-            key={card.id}
-            card={card}
-            cover={cover}
-            handleChoise={handleChoise}
-            flipped={card === firstChoise || card === secChoise || card.matched}
+            key ={card.id}
+            card ={card}
+            cover ={cover}
+            handleChoise ={handleChoise}
+            flipped ={card === firstChoise || card === secChoise || card.matched}
+            disabled = {}
           />
         ))}
       </div>

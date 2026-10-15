@@ -1,9 +1,11 @@
-// import "./Button.module.css";
+import styles from "./Button.module.css";
 
-// const Button = () => {
-//   return(
-//     <button onClick={shuffleCards}>New Game</button>
-//   )
-// };
+const Button = ({ onClick, text }) => {
+  return (
+    <div className={styles.btnWrapper}>
+      <button onClick={onClick}>{text}</button>
+    </div>
+  );
+};
 
-// export default Button;
+export default Button;

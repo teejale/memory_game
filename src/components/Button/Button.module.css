@@ -1,7 +1,32 @@
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}
 button {
-  height: 30px;
-  padding: 5px;
-  border-radius: 5px;
+  /* height: 20px; */
+  padding: 10px;
+  border-radius: 50px;
   border-style: none;
-  background-color: #f54927;
+  background-color: #ff8c4a;
+  letter-spacing: 0.1rem;
+  font-size: 0.7rem;
+  color: #ffff;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #f7ee48;
+}
+
+@media (min-width: 600px) {
+  button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  button {
+    font-size: 1.5rem;
+  }
 }

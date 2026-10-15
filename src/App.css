@@ -1,3 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Finger+Paint&family=Love+Ya+Like+A+Sister&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Sniglet:wght@400;800&display=swap");
+
 * {
   margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Finger Paint";
+  background-color: #f0f7e7;
+}
+.wrapper {
+  width: 100%;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+@media (min-width: 600px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (min-width: 900px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
 }
