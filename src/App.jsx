@@ -13,6 +13,7 @@ import cover from "./assets/yellow_cover.jpg";
 import Card from "./components/Card/Card";
 import rightSound from "./assets/right_answer.mp3";
 import flipSound from "./assets/flip_card.mp3";
+import shuffleSound from "./assets/shuffle.mp3";
 
 const cardImages = [
   { src: image2, matched: false },
@@ -32,16 +33,20 @@ function App() {
 
   const rightAudio = useRef(null);
   const flipAudio = useRef(null);
+  const shuffleAudio = useRef(null);
 
   useEffect(() => {
     flipAudio.current = new Audio(flipSound);
     rightAudio.current = new Audio(rightSound);
+    shuffleAudio.current = new Audio(shuffleSound);
 
     flipAudio.current.preload = "auto";
     rightAudio.current.preload = "auto";
+    shuffleAudio.current.preload = "auto";
 
     flipAudio.current.load();
     rightAudio.current.load();
+    shuffleAudio.current.load();
   });
 
   const playSound = (audioRef) => {
@@ -52,6 +57,7 @@ function App() {
   };
 
   const shuffleCards = () => {
+    playSound(shuffleAudio);
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
