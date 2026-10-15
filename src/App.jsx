@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
@@ -11,6 +11,8 @@ import image5 from "./assets/image_5.jpg";
 import image6 from "./assets/image_6.jpg";
 import cover from "./assets/yellow_cover.jpg";
 import Card from "./components/Card/Card";
+import rightSound from "./assets/right_answer.mp3";
+import flipSound from "./assets/flip_card.mp3";
 
 const cardImages = [
   { src: image2, matched: false },
@@ -28,6 +30,27 @@ function App() {
   const [secChoise, setSecChoise] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
+  const rightAudio = useRef(null);
+  const flipAudio = useRef(null);
+
+  useEffect(() => {
+    flipAudio.current = new Audio(flipSound);
+    rightAudio.current = new Audio(rightSound);
+
+    flipAudio.current.preload = "auto";
+    rightAudio.current.preload = "auto";
+
+    flipAudio.current.load();
+    rightAudio.current.load();
+  });
+
+  const playSound = (audioRef) => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch(console.error);
+    }
+  };
+
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
@@ -38,6 +61,7 @@ function App() {
   };
 
   const handleChoise = (card) => {
+    playSound(flipAudio);
     firstChoise ? setSecChoise(card) : setFirstChoise(card);
   };
 
@@ -45,6 +69,9 @@ function App() {
     if (firstChoise && secChoise) {
       setDisabled(true);
       if (firstChoise.src === secChoise.src) {
+        setTimeout(() => {
+          playSound(rightAudio);
+        }, 400);
         setCards((prevCards) => {
           return prevCards.map((card) => {
             if (card.src === firstChoise.src) {
