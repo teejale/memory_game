@@ -61,6 +61,9 @@ function App() {
   };
 
   const handleChoise = (card) => {
+    if (disabled || card.matched || card === firstChoise || secChoise) {
+      return;
+    }
     playSound(flipAudio);
     firstChoise ? setSecChoise(card) : setFirstChoise(card);
   };
