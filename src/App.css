@@ -20,14 +20,21 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
-  max-width: 700px;
+  width: 100%;
   margin: 30px auto;
+}
+
+.carAnimation {
+  height: 70px;
 }
 
 @media (min-width: 600px) {
   .container {
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
+  }
+  .carAnimation {
+    height: 230px;
   }
 }
 
@@ -36,14 +43,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
-}
-
-.carAnimation {
-  height: 70px;
-}
-
-@media (min-width: 600px) {
-  .carAnimation {
-    height: 230px;
+  .wrapper {
+    max-width: 1000px;
   }
 }

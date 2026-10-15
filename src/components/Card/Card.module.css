@@ -1,6 +1,7 @@
 .card {
   position: relative;
   perspective: 1000px;
+  width: 100%;
 }
 
 img:hover {
