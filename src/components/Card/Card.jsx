@@ -1,9 +1,11 @@
 import "./Card.module.css";
 import styles from "./Card.module.css";
 
-const Card = ({ card, cover, handleChoise, flipped }) => {
+const Card = ({ card, cover, handleChoise, flipped, disabled }) => {
   const handleClick = () => {
-    handleChoise(card);
+    if (!disabled) {
+      handleChoise(card);
+    }
   };
 
   return (
