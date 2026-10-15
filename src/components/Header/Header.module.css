@@ -19,15 +19,3 @@
     font-size: 2rem;
   }
 }
-
-.carAnimation {
-  width: 100px;
-  height: 150px;
-}
-
-@media (min-width: 600px) {
-  .carAnimation {
-    width: 350px;
-    height: 230px;
-  }
-}

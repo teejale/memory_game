@@ -14,6 +14,8 @@ import Card from "./components/Card/Card";
 import rightSound from "./assets/right_answer.mp3";
 import flipSound from "./assets/flip_card.mp3";
 import shuffleSound from "./assets/shuffle.mp3";
+import { Lottie } from "lottie-react";
+import carAnimation from "./assets/Car.json";
 
 const cardImages = [
   { src: image2, matched: false },
@@ -111,7 +113,6 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <div className="carAnimation"></div>
       <Button onClick={shuffleCards} text="New Game!" />
       <div className="container">
         {cards.map((card) => (
@@ -124,6 +125,9 @@ function App() {
             disabled={disabled}
           />
         ))}
+      </div>
+      <div className="carAnimation">
+        <Lottie src={carAnimation} loop={true} autoplay={true} />
       </div>
     </div>
   );

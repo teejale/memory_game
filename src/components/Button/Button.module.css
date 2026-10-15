@@ -16,7 +16,6 @@ button {
 }
 button:hover {
   cursor: pointer;
-  background-color: #f7ee48;
 }
 
 @media (min-width: 600px) {

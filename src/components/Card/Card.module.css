@@ -3,6 +3,10 @@
   perspective: 1000px;
 }
 
+img:hover {
+  cursor: pointer;
+}
+
 .card img {
   width: 100%;
   display: block;
